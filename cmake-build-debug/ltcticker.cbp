@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="ltcticker"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/pborges/Dropbox/src/ltcticker/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/pborges/Dropbox/src/ltcticker/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="PLATFORMIO_BUILD">
+				<Option working_dir="/home/pborges/Dropbox/src/ltcticker/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 PLATFORMIO_BUILD"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="PLATFORMIO_UPLOAD">
+				<Option working_dir="/home/pborges/Dropbox/src/ltcticker/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 PLATFORMIO_UPLOAD"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="PLATFORMIO_CLEAN">
+				<Option working_dir="/home/pborges/Dropbox/src/ltcticker/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 PLATFORMIO_CLEAN"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="PLATFORMIO_PROGRAM">
+				<Option working_dir="/home/pborges/Dropbox/src/ltcticker/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 PLATFORMIO_PROGRAM"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="PLATFORMIO_TEST">
+				<Option working_dir="/home/pborges/Dropbox/src/ltcticker/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 PLATFORMIO_TEST"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="PLATFORMIO_UPLOADFS">
+				<Option working_dir="/home/pborges/Dropbox/src/ltcticker/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 PLATFORMIO_UPLOADFS"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="PLATFORMIO_REBUILD_PROJECT_INDEX">
+				<Option working_dir="/home/pborges/Dropbox/src/ltcticker/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 PLATFORMIO_REBUILD_PROJECT_INDEX"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="PLATFORMIO_UPDATE_ALL">
+				<Option working_dir="/home/pborges/Dropbox/src/ltcticker/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 PLATFORMIO_UPDATE_ALL"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/pborges/Dropbox/src/ltcticker/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ltcticker">
+				<Option output="/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/ltcticker" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/pborges/Dropbox/src/ltcticker/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DARDUINO=20300"/>
+					<Add option="-DLWIP_OPEN_SRC"/>
+					<Add option="-DF_CPU=80000000L"/>
+					<Add option="-D__ets__"/>
+					<Add option="-DICACHE_FLASH"/>
+					<Add option="-DPLATFORMIO=30401"/>
+					<Add option="-DESP8266"/>
+					<Add option="-DARDUINO_ARCH_ESP8266"/>
+					<Add option="-DARDUINO_ESP8266_NODEMCU"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/tools/sdk/include"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/tools/sdk/lwip/include"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/cores/esp8266"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/variants/wifikit8"/>
+					<Add directory="/home/pborges/Dropbox/src/ltcticker/src"/>
+					<Add directory="/home/pborges/Dropbox/src/ltcticker/.piolibdeps/ArduinoJson_ID64/src"/>
+					<Add directory="/home/pborges/Dropbox/src/ltcticker/.piolibdeps/Adafruit GFX Library_ID13"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/Wire"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/SPI"/>
+					<Add directory="/home/pborges/Dropbox/src/ltcticker/.piolibdeps/Adafruit SSD1306_ID135"/>
+					<Add directory="/home/pborges/Dropbox/src/ltcticker/.piolibdeps/WebSockets_ID549/src"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/ArduinoOTA"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/DNSServer/src"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/EEPROM"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/ESP8266AVRISP/src"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPClient/src"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPUpdateServer/src"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/ESP8266SSDP"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WebServer/src"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WiFi/src"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WiFiMesh/src"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/ESP8266httpUpdate/src"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/ESP8266mDNS"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/Ethernet/src"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/GDBStub/src"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/Hash/src"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/SD/src"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/Servo/src"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/SoftwareSerial"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/TFT_Touch_Shield_V2"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/Ticker"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/esp8266/src"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/toolchain-xtensa/xtensa-lx106-elf/include"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/toolchain-xtensa/lib/gcc/xtensa-lx106-elf/4.8.2/include"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/toolchain-xtensa/lib/gcc/xtensa-lx106-elf/4.8.2/include-fixed"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/tool-unity"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 ltcticker"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ltcticker/fast">
+				<Option output="/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/ltcticker" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/pborges/Dropbox/src/ltcticker/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DARDUINO=20300"/>
+					<Add option="-DLWIP_OPEN_SRC"/>
+					<Add option="-DF_CPU=80000000L"/>
+					<Add option="-D__ets__"/>
+					<Add option="-DICACHE_FLASH"/>
+					<Add option="-DPLATFORMIO=30401"/>
+					<Add option="-DESP8266"/>
+					<Add option="-DARDUINO_ARCH_ESP8266"/>
+					<Add option="-DARDUINO_ESP8266_NODEMCU"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/tools/sdk/include"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/tools/sdk/lwip/include"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/cores/esp8266"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/variants/wifikit8"/>
+					<Add directory="/home/pborges/Dropbox/src/ltcticker/src"/>
+					<Add directory="/home/pborges/Dropbox/src/ltcticker/.piolibdeps/ArduinoJson_ID64/src"/>
+					<Add directory="/home/pborges/Dropbox/src/ltcticker/.piolibdeps/Adafruit GFX Library_ID13"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/Wire"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/SPI"/>
+					<Add directory="/home/pborges/Dropbox/src/ltcticker/.piolibdeps/Adafruit SSD1306_ID135"/>
+					<Add directory="/home/pborges/Dropbox/src/ltcticker/.piolibdeps/WebSockets_ID549/src"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/ArduinoOTA"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/DNSServer/src"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/EEPROM"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/ESP8266AVRISP/src"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPClient/src"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPUpdateServer/src"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/ESP8266SSDP"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WebServer/src"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WiFi/src"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WiFiMesh/src"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/ESP8266httpUpdate/src"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/ESP8266mDNS"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/Ethernet/src"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/GDBStub/src"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/Hash/src"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/SD/src"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/Servo/src"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/SoftwareSerial"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/TFT_Touch_Shield_V2"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/Ticker"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/framework-arduinoespressif8266/libraries/esp8266/src"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/toolchain-xtensa/xtensa-lx106-elf/include"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/toolchain-xtensa/lib/gcc/xtensa-lx106-elf/4.8.2/include"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/toolchain-xtensa/lib/gcc/xtensa-lx106-elf/4.8.2/include-fixed"/>
+					<Add directory="/home/pborges/Dropbox/data/platformio/packages/tool-unity"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 ltcticker/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/pborges/Dropbox/src/ltcticker/src/main.cpp">
+			<Option target="ltcticker"/>
+		</Unit>
+		<Unit filename="/home/pborges/Dropbox/src/ltcticker/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/pborges/Dropbox/src/ltcticker/CMakeListsPrivate.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

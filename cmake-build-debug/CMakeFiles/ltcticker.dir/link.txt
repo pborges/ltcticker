@@ -1,0 +1,1 @@
+/home/pborges/Dropbox/data/platformio/packages/toolchain-xtensa/bin/xtensa-lx106-elf-g++  -g  -rdynamic CMakeFiles/ltcticker.dir/src/main.cpp.o  -o ltcticker 

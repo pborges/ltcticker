@@ -1,0 +1,11 @@
+/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/CMakeFiles/PLATFORMIO_BUILD.dir
+/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/CMakeFiles/PLATFORMIO_UPLOAD.dir
+/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/CMakeFiles/PLATFORMIO_CLEAN.dir
+/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/CMakeFiles/PLATFORMIO_PROGRAM.dir
+/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/CMakeFiles/PLATFORMIO_TEST.dir
+/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/CMakeFiles/PLATFORMIO_UPLOADFS.dir
+/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/CMakeFiles/PLATFORMIO_REBUILD_PROJECT_INDEX.dir
+/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/CMakeFiles/PLATFORMIO_UPDATE_ALL.dir
+/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/pborges/Dropbox/src/ltcticker/cmake-build-debug/CMakeFiles/ltcticker.dir
