@@ -45,7 +45,7 @@ WebSocketsClient webSocket;
 StaticJsonBuffer<512> jsonBuffer;
 
 char buff[128];
-char httpBuff[128];
+char httpBuff[255];
 const char *host = "ltc_ticker";
 
 void webSocketEvent(WStype_t type, uint8_t *payload, size_t length) {
@@ -92,6 +92,11 @@ void handleRoot() {
     httpServer.send(200, "text/html", httpBuff);
 }
 
+void handleReset() {
+    wifiManager.resetSettings();
+    httpServer.send(200, "text/text", "OK please reboot");
+}
+
 void setup() {
     display.begin(SSD1306_SWITCHCAPVCC, 0x3C);  // initialize with the I2C addr 0x3C (for the 128x32)
 
@@ -111,6 +116,7 @@ void setup() {
 
     httpUpdater.setup(&httpServer);
     httpServer.on("/", handleRoot);
+    httpServer.on("/reset", handleReset);
     httpServer.begin();
 
     MDNS.addService("http", "tcp", 80);
