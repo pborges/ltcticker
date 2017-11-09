@@ -1,22 +1,20 @@
 #include <Arduino.h>
 #include <ESP8266WiFi.h>
-#include <ESP8266mDNS.h>
 #include <ESP8266WiFiMulti.h>
 #include <WebSocketsClient.h>
-#include <ArduinoOTA.h>
 #include <Hash.h>
 #include <ArduinoJson.h>
 #include <SPI.h>
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
+#include <ESP8266WebServer.h>
+#include <ESP8266mDNS.h>
+#include <ESP8266HTTPUpdateServer.h>
+#include <WiFiManager.h>
 
 #define OLED_RESET 4
 Adafruit_SSD1306 display(OLED_RESET);
-
-
-const char *WIFI_NETWORK = "*****";
-const char *WIFI_PASSWORD = "*****";
 
 //TTGO 0.91s OLED connection:
 //SDA -- D4
@@ -38,13 +36,17 @@ const char *WIFI_PASSWORD = "*****";
 */
 
 
-
+ESP8266WebServer httpServer(80);
+ESP8266HTTPUpdateServer httpUpdater;
 ESP8266WiFiMulti WiFiMulti;
-WebSocketsClient webSocket;
+WiFiManager wifiManager;
 
+WebSocketsClient webSocket;
 StaticJsonBuffer<512> jsonBuffer;
 
 char buff[128];
+char httpBuff[128];
+const char *host = "ltc_ticker";
 
 void webSocketEvent(WStype_t type, uint8_t *payload, size_t length) {
     switch (type) {
@@ -83,15 +85,41 @@ void webSocketEvent(WStype_t type, uint8_t *payload, size_t length) {
             }
             break;
     }
+}
 
+void handleRoot() {
+    sprintf(httpBuff, "LTC tracker v1.0<br><a href=\"http://%s.local/update\">upload firmware</a>\0", host);
+    httpServer.send(200, "text/html", httpBuff);
 }
 
 void setup() {
     display.begin(SSD1306_SWITCHCAPVCC, 0x3C);  // initialize with the I2C addr 0x3C (for the 128x32)
 
+    display.clearDisplay();
+    display.setTextSize(1);
+    display.setTextColor(WHITE);
+    display.setCursor(0, 0);
+    display.print("LTC Ticker");
+    display.display();
+
+
     Serial.begin(115200);
 
-    WiFiMulti.addAP(WIFI_NETWORK, WIFI_PASSWORD);
+    wifiManager.autoConnect(host);
+
+    MDNS.begin(host);
+
+    httpUpdater.setup(&httpServer);
+    httpServer.on("/", handleRoot);
+    httpServer.begin();
+
+    MDNS.addService("http", "tcp", 80);
+    Serial.printf("HTTPUpdateServer ready! Open http://%s.local/update in your browser\n", host);
+
+    httpUpdater.setup(&httpServer);
+    httpServer.begin();
+
+    MDNS.addService("http", "tcp", 80);
 
     //WiFi.disconnect();
     while (WiFiMulti.run() != WL_CONNECTED) {
@@ -109,28 +137,9 @@ void setup() {
     webSocket.beginSSL("ws-feed.gdax.com", 443, "/");
     webSocket.onEvent(webSocketEvent);
     webSocket.setReconnectInterval(5000);
-
-    ArduinoOTA.onStart([]() {
-        Serial.println("Start updating ");
-    });
-    ArduinoOTA.onEnd([]() {
-        Serial.println("\nEnd");
-    });
-    ArduinoOTA.onProgress([](unsigned int progress, unsigned int total) {
-        Serial.printf("Progress: %u%%\r", (progress / (total / 100)));
-    });
-    ArduinoOTA.onError([](ota_error_t error) {
-        Serial.printf("Error[%u]: ", error);
-        if (error == OTA_AUTH_ERROR) Serial.println("Auth Failed");
-        else if (error == OTA_BEGIN_ERROR) Serial.println("Begin Failed");
-        else if (error == OTA_CONNECT_ERROR) Serial.println("Connect Failed");
-        else if (error == OTA_RECEIVE_ERROR) Serial.println("Receive Failed");
-        else if (error == OTA_END_ERROR) Serial.println("End Failed");
-    });
-    ArduinoOTA.begin();
 }
 
 void loop() {
-    ArduinoOTA.handle();
+    httpServer.handleClient();
     webSocket.loop();
 }
