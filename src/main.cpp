@@ -45,7 +45,7 @@ StaticJsonBuffer<512> jsonBuffer;
 char buff[128];
 char httpBuff[4096];
 const char *host = "crypto_tracker";
-const char *title = "Crypto Tracker v1.1";
+const char *title = "Crypto Tracker v1.2";
 
 double prices[3];
 
@@ -61,9 +61,17 @@ void webSocketEvent(WStype_t type, uint8_t *payload, size_t length) {
             JsonObject &jsonObject = jsonBuffer.createObject();
             jsonObject["type"] = "subscribe";
             JsonArray &sub = jsonObject.createNestedArray("product_ids");
-            sub.add("LTC-USD");
-            sub.add("BTC-USD");
-            sub.add("ETH-USD");
+            switch (crypto) {
+                case 0:
+                    sub.add("LTC-USD");
+                    break;
+                case 1:
+                    sub.add("BTC-USD");
+                    break;
+                case 2:
+                    sub.add("ETH-USD");
+                    break;
+            }
             jsonObject.createNestedArray("channels").add("matches");
 
             Serial.printf("[WSc] Connected to url: %s\n", payload);
@@ -82,24 +90,18 @@ void webSocketEvent(WStype_t type, uint8_t *payload, size_t length) {
                 jsonObject.printTo(Serial);
                 Serial.println();
                 if (strncmp("match", jsonObject["type"], 5) == 0) {
-
-                    if (strncmp("LTC", (const char *) jsonObject["product_id"], 3) == 0) {
-                        prices[0] = jsonObject["price"];
-                    } else if (strncmp("BTC", (const char *) jsonObject["product_id"], 3) == 0) {
-                        prices[1] = jsonObject["price"];
-                    } else if (strncmp("ETH", (const char *) jsonObject["product_id"], 3) == 0) {
-                        prices[2] = jsonObject["price"];
-                    }
-
                     switch (crypto) {
                         case 0:
                             strcpy(buff, "Litecoin");
+                            prices[0] = jsonObject["price"];
                             break;
                         case 1:
                             strcpy(buff, "Bitcoin");
+                            prices[1] = jsonObject["price"];
                             break;
                         case 2:
                             strcpy(buff, "Ethereum");
+                            prices[2] = jsonObject["price"];
                             break;
                     }
 
@@ -124,6 +126,12 @@ void webSocketEvent(WStype_t type, uint8_t *payload, size_t length) {
     }
 }
 
+void track() {
+    webSocket.beginSSL("ws-feed.gdax.com", 443, "/");
+    webSocket.onEvent(webSocketEvent);
+    webSocket.setReconnectInterval(5000);
+}
+
 void handleRoot() {
     sprintf(httpBuff,
             "%s<br><a href=\"/ltc\">LTC</a><br><a href=\"/btc\">BTC</a><br><a href=\"/eth\">ETH</a>\0",
@@ -138,18 +146,25 @@ void handleReset() {
 
 void handleLtc() {
     crypto = 0;
+    webSocket.disconnect();
+    track();
     httpServer.send(200, "text/text", "Tracker set to LTC");
 }
 
 void handleBtc() {
     crypto = 1;
+    webSocket.disconnect();
+    track();
     httpServer.send(200, "text/text", "Tracker set to BTC");
 }
 
 void handleEth() {
     crypto = 2;
+    webSocket.disconnect();
+    track();
     httpServer.send(200, "text/text", "Tracker set to ETH");
 }
+
 
 void setup() {
     display.begin(SSD1306_SWITCHCAPVCC, 0x3C);  // initialize with the I2C addr 0x3C (for the 128x32)
@@ -196,9 +211,7 @@ void setup() {
     display.print(WiFi.localIP());
     display.display();
 
-    webSocket.beginSSL("ws-feed.gdax.com", 443, "/");
-    webSocket.onEvent(webSocketEvent);
-    webSocket.setReconnectInterval(5000);
+    track();
 }
 
 void loop() {
