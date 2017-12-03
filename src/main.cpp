@@ -10,7 +10,6 @@
 #include <Adafruit_SSD1306.h>
 #include <ESP8266WebServer.h>
 #include <ESP8266mDNS.h>
-#include <ESP8266HTTPUpdateServer.h>
 #include <WiFiManager.h>
 #include <Button.h>
 
@@ -37,7 +36,6 @@ Adafruit_SSD1306 display(OLED_RESET);
 */
 
 ESP8266WebServer httpServer(80);
-ESP8266HTTPUpdateServer httpUpdater;
 ESP8266WiFiMulti WiFiMulti;
 WiFiManager wifiManager;
 
@@ -128,8 +126,8 @@ void webSocketEvent(WStype_t type, uint8_t *payload, size_t length) {
 
 void handleRoot() {
     sprintf(httpBuff,
-            "%s<br><a href=\"http://%s.local/update\">upload firmware</a><br><a href=\"http://%s.local/ltc\">LTC</a><br><a href=\"http://%s.local/btc\">BTC</a><br><a href=\"http://%s.local/eth\">ETH</a>\0",
-            title, host, host, host, host);
+            "%s<br><a href=\"/ltc\">LTC</a><br><a href=\"/btc\">BTC</a><br><a href=\"/eth\">ETH</a>\0",
+            title);
     httpServer.send(200, "text/html", httpBuff);
 }
 
@@ -171,7 +169,6 @@ void setup() {
 
     MDNS.begin(host);
 
-    httpUpdater.setup(&httpServer);
     httpServer.on("/", handleRoot);
     httpServer.on("/ltc", handleLtc);
     httpServer.on("/btc", handleBtc);
@@ -182,7 +179,6 @@ void setup() {
     MDNS.addService("http", "tcp", 80);
     Serial.printf("HTTPUpdateServer ready! Open http://%s.local/update in your browser\n", host);
 
-    httpUpdater.setup(&httpServer);
     httpServer.begin();
 
     MDNS.addService("http", "tcp", 80);
