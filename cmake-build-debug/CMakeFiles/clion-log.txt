@@ -1,4 +1,0 @@
-/home/pborges/Dropbox/apps/linux/CLion/ch-0/172.4343.16/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/pborges/Dropbox/src/ltcticker
--- Configuring done
--- Generating done
--- Build files have been written to: /home/pborges/Dropbox/src/ltcticker/cmake-build-debug

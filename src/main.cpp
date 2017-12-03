@@ -12,6 +12,7 @@
 #include <ESP8266mDNS.h>
 #include <ESP8266HTTPUpdateServer.h>
 #include <WiFiManager.h>
+#include <Button.h>
 
 #define OLED_RESET 4
 Adafruit_SSD1306 display(OLED_RESET);
@@ -35,7 +36,6 @@ Adafruit_SSD1306 display(OLED_RESET);
  TX   = 1;
 */
 
-
 ESP8266WebServer httpServer(80);
 ESP8266HTTPUpdateServer httpUpdater;
 ESP8266WiFiMulti WiFiMulti;
@@ -45,8 +45,13 @@ WebSocketsClient webSocket;
 StaticJsonBuffer<512> jsonBuffer;
 
 char buff[128];
-char httpBuff[255];
-const char *host = "ltc_ticker";
+char httpBuff[4096];
+const char *host = "crypto_tracker";
+const char *title = "Crypto Tracker v1.1";
+
+double prices[3];
+
+int crypto = 0;
 
 void webSocketEvent(WStype_t type, uint8_t *payload, size_t length) {
     switch (type) {
@@ -57,7 +62,10 @@ void webSocketEvent(WStype_t type, uint8_t *payload, size_t length) {
             jsonBuffer.clear();
             JsonObject &jsonObject = jsonBuffer.createObject();
             jsonObject["type"] = "subscribe";
-            jsonObject.createNestedArray("product_ids").add("LTC-USD");
+            JsonArray &sub = jsonObject.createNestedArray("product_ids");
+            sub.add("LTC-USD");
+            sub.add("BTC-USD");
+            sub.add("ETH-USD");
             jsonObject.createNestedArray("channels").add("matches");
 
             Serial.printf("[WSc] Connected to url: %s\n", payload);
@@ -69,17 +77,48 @@ void webSocketEvent(WStype_t type, uint8_t *payload, size_t length) {
         case WStype_TEXT:
             jsonBuffer.clear();
             JsonObject &jsonObject = jsonBuffer.parseObject(payload);
-//            Serial.printf("[WSc] get text: %s\n", payload);
+
             if (jsonObject.success()) {
-                strcpy(buff, "LTC: ");
-                double price = jsonObject["price"];
-                dtostrf(price, 5, 2, buff + 5);
-                display.clearDisplay();
-                display.setTextSize(2);
-                display.setTextColor(WHITE);
-                display.setCursor(5, 10);
-                display.print(buff);
-                display.display();
+
+                Serial.print("[WSC] : ");
+                jsonObject.printTo(Serial);
+                Serial.println();
+                if (strncmp("match", jsonObject["type"], 5) == 0) {
+
+                    if (strncmp("LTC", (const char *) jsonObject["product_id"], 3) == 0) {
+                        prices[0] = jsonObject["price"];
+                    } else if (strncmp("BTC", (const char *) jsonObject["product_id"], 3) == 0) {
+                        prices[1] = jsonObject["price"];
+                    } else if (strncmp("ETH", (const char *) jsonObject["product_id"], 3) == 0) {
+                        prices[2] = jsonObject["price"];
+                    }
+
+                    switch (crypto) {
+                        case 0:
+                            strcpy(buff, "Litecoin");
+                            break;
+                        case 1:
+                            strcpy(buff, "Bitcoin");
+                            break;
+                        case 2:
+                            strcpy(buff, "Ethereum");
+                            break;
+                    }
+
+                    display.clearDisplay();
+                    display.setTextSize(1);
+                    display.setTextColor(WHITE);
+                    display.setCursor(0, 0);
+                    display.print(buff);
+
+                    dtostrf(prices[crypto], 10, 2, buff);
+                    display.setTextSize(2);
+                    display.setTextColor(WHITE);
+                    display.setCursor(0, 15);
+                    display.print(buff);
+                    display.display();
+                }
+
             } else {
                 Serial.println("json error");
             }
@@ -88,13 +127,30 @@ void webSocketEvent(WStype_t type, uint8_t *payload, size_t length) {
 }
 
 void handleRoot() {
-    sprintf(httpBuff, "LTC tracker v1.0<br><a href=\"http://%s.local/update\">upload firmware</a>\0", host);
+    sprintf(httpBuff,
+            "%s<br><a href=\"http://%s.local/update\">upload firmware</a><br><a href=\"http://%s.local/ltc\">LTC</a><br><a href=\"http://%s.local/btc\">BTC</a><br><a href=\"http://%s.local/eth\">ETH</a>\0",
+            title, host, host, host, host);
     httpServer.send(200, "text/html", httpBuff);
 }
 
 void handleReset() {
     wifiManager.resetSettings();
     httpServer.send(200, "text/text", "OK please reboot");
+}
+
+void handleLtc() {
+    crypto = 0;
+    httpServer.send(200, "text/text", "Tracker set to LTC");
+}
+
+void handleBtc() {
+    crypto = 1;
+    httpServer.send(200, "text/text", "Tracker set to BTC");
+}
+
+void handleEth() {
+    crypto = 2;
+    httpServer.send(200, "text/text", "Tracker set to ETH");
 }
 
 void setup() {
@@ -104,9 +160,10 @@ void setup() {
     display.setTextSize(1);
     display.setTextColor(WHITE);
     display.setCursor(0, 0);
-    display.print("LTC Ticker");
+    display.print(title);
     display.display();
 
+    pinMode(D3, INPUT);
 
     Serial.begin(115200);
 
@@ -116,6 +173,9 @@ void setup() {
 
     httpUpdater.setup(&httpServer);
     httpServer.on("/", handleRoot);
+    httpServer.on("/ltc", handleLtc);
+    httpServer.on("/btc", handleBtc);
+    httpServer.on("/eth", handleEth);
     httpServer.on("/reset", handleReset);
     httpServer.begin();
 
